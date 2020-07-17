@@ -1,0 +1,71 @@
+﻿@model Entities.Product
+
+@{
+    ViewBag.Title = "Delete Product";
+}
+
+<div class="shopBar">
+    <ul class="shopNavigation" id="shopNavigationLeft">
+        <li>@Html.ActionLink("Back to Product", "Details", new { id = @Model.ProductId })</li>
+    </ul>
+</div>
+
+<div class="shopBarMobile">
+    <div id="shopNavigationLeft">
+        <ul>
+            <li>
+                <a href="@Url.Action("Details", "Product", new { id = @Model.ProductId })">
+                    <img src="~/Images/iconBack.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+@using (Html.BeginForm("Delete", "Product", FormMethod.Post, new { @class = "shopForm" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    <table class="shopForm" id="centered">
+
+        <h1 class="FormTitle">Delete @Model.Name</h1>
+        <h3>Are you sure you want to delete this product?</h3>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger validationCenter" })
+        <tr>
+            <td>
+                Name: @Model.Name
+            </td>
+        </tr>     
+        
+        <tr>
+            <td>
+                Manufacturer: @Model.Manufacturer.Name
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Category: @Model.Category
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                Price: £@Model.Price
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                Stock: @Model.StockAmount
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="Delete" class="shopButton" id="deleteButton" />
+            </td>
+        </tr>
+    </table>
+}
+

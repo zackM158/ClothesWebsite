@@ -1,0 +1,218 @@
+﻿@model ZacamoMvc.Models.ProductWithImageModel
+
+@{
+    ViewBag.Title = "New Product";
+}
+
+<div class="shopBar">
+    <ul class="shopNavigation" id="shopNavigationLeft">
+        <li>@Html.ActionLink("Back to List", "Index")</li>
+    </ul>
+</div>
+
+<div class="shopBarMobile">
+    <div id="shopNavigationLeft">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Product")">
+                    <img src="~/Images/iconBack.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="webForm">
+    @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data"}))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        <table class="shopForm">
+
+            <h1 class="FormTitle">New Product</h1>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger validationCenter" })
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.NewProduct.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.NewProduct.Name, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.NewProduct.Name, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.NewProduct.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.NewProduct.Category, (SelectList)ViewBag.ListOfCategories, new { @class = "formInput" })
+                    @Html.ValidationMessageFor(model => model.NewProduct.Category, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.NewProduct.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.NewProduct.Price, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.NewProduct.Price, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.NewProduct.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.NewProduct.Description, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.NewProduct.Description, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.NewProduct.StockAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.NewProduct.StockAmount, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.NewProduct.StockAmount, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.NewProduct.ManufacturerId, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.NewProduct.ManufacturerId, (SelectList)ViewBag.ListOfManufacturers, new { @class = "formInput" })
+                    @Html.ValidationMessageFor(model => model.NewProduct.Category, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.PostedFile, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.PostedFile, new { type = "file", accept = ".png,.jpg,.jpeg" })
+                    @Html.ValidationMessageFor(model => model.PostedFile, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Add Product" class="shopButton" style="width: 100%" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+<div class="mobileForm">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <table class="shopForm">
+
+        <h1 class="FormTitle">New Product</h1>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger validationCenter" })
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.NewProduct.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.NewProduct.Name, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.NewProduct.Name, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.NewProduct.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DropDownListFor(model => model.NewProduct.Category, (SelectList)ViewBag.ListOfCategories, new { @class = "formInput" })
+                @Html.ValidationMessageFor(model => model.NewProduct.Category, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.NewProduct.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.NewProduct.Price, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.NewProduct.Price, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.NewProduct.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.NewProduct.Description, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.NewProduct.Description, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.NewProduct.StockAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.NewProduct.StockAmount, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.NewProduct.StockAmount, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.NewProduct.ManufacturerId, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DropDownListFor(model => model.NewProduct.ManufacturerId, (SelectList)ViewBag.ListOfManufacturers, new { @class = "formInput" })
+                @Html.ValidationMessageFor(model => model.NewProduct.Category, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.PostedFile, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(model => model.PostedFile, new { type = "file", accept = ".png,.jpg,.jpeg", style = "width: 100%" })
+                @Html.ValidationMessageFor(model => model.PostedFile, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Add Product" class="formInput" />
+            </td>
+        </tr>
+    </table>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

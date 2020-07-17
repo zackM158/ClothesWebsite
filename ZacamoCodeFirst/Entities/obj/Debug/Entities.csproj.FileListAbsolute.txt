@@ -1,0 +1,12 @@
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\bin\Debug\Entities.dll.config
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\bin\Debug\Entities.dll
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\bin\Debug\Entities.pdb
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\bin\Debug\EntityFramework.dll
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\bin\Debug\EntityFramework.xml
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\obj\Debug\Entities.csproj.CopyComplete
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\obj\Debug\Entities.dll
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\obj\Debug\Entities.pdb
+D:\Users\Zack\Documents\FDM\OOD\Projects\CSharpWorkspace\ZacamoWebsite\ZacamoCodeFirst\Entities\obj\Debug\Entities.csprojAssemblyReference.cache

@@ -1,0 +1,45 @@
+﻿@model Entities.User
+
+@{
+    ViewBag.Title = "Delete Account";
+}
+
+<div class="container body-content">
+    <div class="shopBar">
+        <div id="shopNavigationRight">
+            <ul>
+                <li>@Html.ActionLink("Back To Account", "Index")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="shopBarMobile">
+    <div id="shopNavigationCenter">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Account")">
+                    <img src="~/Images/iconBack.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<hr />
+<h1 class="text-center">Delete Account</h1>
+
+<h3>Are you sure you want to delete your account?</h3>
+
+@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <table class="shopForm" id="centered" style="margin:30px auto 0 auto;">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger validationCenter" })
+            <tr>
+                <td>
+                    <input type="submit" value="DELETE ACCOUNT" class="shopButton" id="DeleteAccountButton" />
+                </td>
+            </tr>
+        </table>
+    }

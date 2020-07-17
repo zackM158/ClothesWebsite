@@ -1,0 +1,144 @@
+﻿@using System.Security.Claims
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="favicon" href="~/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <title>Zacamo @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+        <div class="logo">
+            <a id="mobileLogo" href="@Url.Action("Index", "Home")">
+                <img src="~/Images/logoWhiteNew.png">
+            </a>
+        </div>
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+            <ul>
+                @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Account" ? "active" : "")">
+                        @Html.ActionLink(@HttpContext.Current.User.Identity.Name, "Index", "Account")
+                    </li>
+                }
+                else
+                {
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Login" ? "active" : "")">@Html.ActionLink("Log In", "Login", "Security")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Register" ? "active" : "")">@Html.ActionLink("Register", "Register", "Security")</li>
+                }
+                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Basket" ? "active" : "")">
+                    @Html.ActionLink("Basket", "Index", "Basket")
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Product" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                    @Html.ActionLink("All Clothes", "Index", "Product")
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Shirts" ? "active" : "")">
+                    @Html.ActionLink("Shirts", "Index", "Product", new { searchTerm = "Shirts" }, null)
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Trousers" ? "active" : "")">
+                    @Html.ActionLink("Trousers", "Index", "Product", new { searchTerm = "Trousers" }, null)
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Suits" ? "active" : "")">
+                    @Html.ActionLink("Suits", "Index", "Product", new { searchTerm = "Suits" }, null)
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Shoes" ? "active" : "")">
+                    @Html.ActionLink("Shoes", "Index", "Product", new { searchTerm = "Shoes" }, null)
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">
+                    @Html.ActionLink("About", "About", "Home")
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">
+                    @Html.ActionLink("Contact", "Contact", "Home")
+                </li>
+                @if (HttpContext.Current.User.IsInRole("Admin"))
+                {
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Manufacturer" ? "active" : "")">
+                        @Html.ActionLink("Manufacturers", "Index", "Manufacturer")
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Member" ? "active" : "")">
+                        @Html.ActionLink("Members", "Index", "Member")
+                    </li>
+                }
+            </ul>
+        </div>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="showMenu()">
+            <i class="fa fa-bars fa-2x"></i>
+        </a>
+    </div>
+
+    <!--<header>-->
+    <div class="main">
+        <div class="logo">
+            <a href="@Url.Action("Index", "Home")">
+                <img src="~/Images/logoWhiteNew.png">
+            </a>
+        </div>
+        <ul class="navigation">
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Manufacturer" ? "active" : "")">
+                    @Html.ActionLink("Manufacturers", "Index", "Manufacturer")
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Member" ? "active" : "")">
+                    @Html.ActionLink("Members", "Index", "Member")
+                </li>
+            }
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Product" ? "active" : "")">
+                <div class="dropdown">
+                    @Html.ActionLink("Clothes", "Index", "Product")
+                    <div class="dropdown-content">
+                        @Html.ActionLink("Shirts", "Index", "Product", new { searchTerm = "Shirts" }, null)
+                        @Html.ActionLink("Trousers", "Index", "Product", new { searchTerm = "Trousers" }, null)
+                        @Html.ActionLink("Suits", "Index", "Product", new { searchTerm = "Suits" }, null)
+                        @Html.ActionLink("Shoes", "Index", "Product", new { searchTerm = "Shoes" }, null)
+                    </div>
+                </div>
+            </li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">
+                @Html.ActionLink("About", "About", "Home")
+            </li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Contact" && ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">
+                @Html.ActionLink("Contact", "Contact", "Home")
+            </li>
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Account" ? "active" : "")">
+                    @Html.ActionLink(@HttpContext.Current.User.Identity.Name, "Index", "Account")
+                </li>
+            }
+            else
+            {
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Register" ? "active" : "")">@Html.ActionLink("Register", "Register", "Security")</li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Login" ? "active" : "")">@Html.ActionLink("Log In", "Login", "Security")</li>
+            }
+
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Basket" ? "active" : "")">
+                @Html.ActionLink("Basket", "Index", "Basket")
+            </li>
+
+        </ul>
+    </div>
+
+    @RenderBody()
+
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Zack Mitchell</p>
+    </footer>
+
+    <script type="text/javascript" src="~/Scripts/ZacamoScript.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c564eed3-bf2d-4ab4-ab17-c5bbcaf0de81" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Entities" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51714/AddressService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AddressService.xsd" MetadataType="Schema" ID="bef401d7-ba81-46e7-900f-0f75f271a69c" SourceId="1" SourceUrl="http://localhost:51714/AddressService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AddressService.wsdl" MetadataType="Wsdl" ID="c8a61918-af22-4acd-8bf6-39f7333fdbc7" SourceId="1" SourceUrl="http://localhost:51714/AddressService.svc?wsdl" />
+    <MetadataFile FileName="AddressService1.xsd" MetadataType="Schema" ID="8fe66a60-390d-48b6-83a9-cc60ac89c250" SourceId="1" SourceUrl="http://localhost:51714/AddressService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AddressService2.xsd" MetadataType="Schema" ID="55622b54-a034-4324-bab9-cd4ce3e068aa" SourceId="1" SourceUrl="http://localhost:51714/AddressService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AddressService.disco" MetadataType="Disco" ID="c1f9f327-a132-4027-9694-a5ed397934c0" SourceId="1" SourceUrl="http://localhost:51714/AddressService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

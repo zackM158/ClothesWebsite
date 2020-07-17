@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Entities.Manufacturer>
+
+@{
+    ViewBag.Title = "Manufacturers";
+}
+
+    <div class="container body-content">
+        <div class="shopBar">
+            <ul class="shopNavigation">
+                <li>@Html.ActionLink("Create New", "Create")</li>
+            </ul>
+            <hr style="margin-top: 50px" />
+        </div>
+
+
+        <h1 class="FormTitle" id="TitleCenter">Manufacturers</h1>
+
+        <div class="shopBarMobile">
+            <div id="shopNavigationCenter">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Create", "Manufacturer")">
+                            <img src="~/Images/iconAdd.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <table class="manufacturersTable" id="centeredVertical">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Website)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a href="http://@item.Website">@Html.DisplayFor(modelItem => item.Website)</a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Manufacturer", new { id = item.ManufacturerId })">
+                            <img src="~/Images/iconEditSmall.png">
+                        </a> |
+                        <a href="@Url.Action("Delete", "Manufacturer", new { id = item.ManufacturerId })">
+                            <img src="~/Images/iconDeleteSmall.png">
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

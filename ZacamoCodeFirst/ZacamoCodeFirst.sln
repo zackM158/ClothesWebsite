@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{8DD3ED48-8E55-4126-80FF-78C1B38E815F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZacamoConsole", "ZacamoConsole\ZacamoConsole.csproj", "{EA41F136-3178-4F83-9A0F-8F30628A91FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZacamoRepositories", "ZacamoRepositories\ZacamoRepositories.csproj", "{DF214024-8453-4867-8BA9-2D4B3DD6E832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer2", "DataLayer2\DataLayer2.csproj", "{68ECBDA0-F8A4-4E8C-A86E-6C2A13B3B21F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryTests", "RepositoryTests\RepositoryTests.csproj", "{1B0B5695-DAA8-4D38-8C08-D6CD158E5883}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZacksLibrary", "ZacksLibrary\ZacksLibrary.csproj", "{DB1DD3DF-4B7B-4E20-A7B3-D3950DCF46E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DD3ED48-8E55-4126-80FF-78C1B38E815F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD3ED48-8E55-4126-80FF-78C1B38E815F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD3ED48-8E55-4126-80FF-78C1B38E815F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD3ED48-8E55-4126-80FF-78C1B38E815F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA41F136-3178-4F83-9A0F-8F30628A91FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA41F136-3178-4F83-9A0F-8F30628A91FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA41F136-3178-4F83-9A0F-8F30628A91FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA41F136-3178-4F83-9A0F-8F30628A91FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF214024-8453-4867-8BA9-2D4B3DD6E832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF214024-8453-4867-8BA9-2D4B3DD6E832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF214024-8453-4867-8BA9-2D4B3DD6E832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF214024-8453-4867-8BA9-2D4B3DD6E832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68ECBDA0-F8A4-4E8C-A86E-6C2A13B3B21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68ECBDA0-F8A4-4E8C-A86E-6C2A13B3B21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68ECBDA0-F8A4-4E8C-A86E-6C2A13B3B21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68ECBDA0-F8A4-4E8C-A86E-6C2A13B3B21F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B0B5695-DAA8-4D38-8C08-D6CD158E5883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B0B5695-DAA8-4D38-8C08-D6CD158E5883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B0B5695-DAA8-4D38-8C08-D6CD158E5883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B0B5695-DAA8-4D38-8C08-D6CD158E5883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB1DD3DF-4B7B-4E20-A7B3-D3950DCF46E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB1DD3DF-4B7B-4E20-A7B3-D3950DCF46E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB1DD3DF-4B7B-4E20-A7B3-D3950DCF46E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB1DD3DF-4B7B-4E20-A7B3-D3950DCF46E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A1CAD49-D7B3-4029-9EFF-E158F490134D}
+	EndGlobalSection
+EndGlobal

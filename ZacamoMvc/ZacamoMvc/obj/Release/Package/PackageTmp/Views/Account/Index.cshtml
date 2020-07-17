@@ -1,0 +1,84 @@
+﻿@model Entities.User
+
+@{
+    ViewBag.Title = "Account";
+}
+
+
+<div class="container body-content">
+    <div class="shopBar">
+        <div id="shopNavigationRight">
+            <ul>
+                <li>@Html.ActionLink("Update Password", "UpdatePassword", new { id = Model.UserId })</li>
+                <li>@Html.ActionLink("Edit Account", "Edit", new { id = Model.UserId })</li>
+                <li>@Html.ActionLink("Sign Out", "Logout", "Security", new { id = Model.UserId }, null)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="shopBarMobile">
+    <div id="shopNavigationCenter">
+        <ul>
+            <li>
+                <a href="@Url.Action("UpdatePassword", "Account", new { id = Model.UserId })">
+                    <img src="~/Images/iconPassword.png">
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Edit", "Account", new { id = Model.UserId })">
+                    <img src="~/Images/iconEdit.png">
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Logout", "Security", new { id = Model.UserId })">
+                    <img src="~/Images/iconLogoff.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<hr />
+
+
+<div style="text-align: center">
+    <h1 style="display: inline">
+        @Model.FirstName @Model.LastName
+    </h1>
+    @if (@Model.IsAdmin)
+    {
+        <h4 style="display: inline">(Admin)</h4>
+    }
+</div>
+
+@if (@Model.IsPremiumUser)
+{
+    <h2 class="text-center" style="color: #E5C453">Premium Member</h2>
+}
+else
+{
+    <div style="text-align: center; margin: 50px 0">
+        @Html.ActionLink("Buy Premium - Only £40!", "Premium", null, new { @class = "shopButton", @id = "BuyPremiumButton" })
+    </div>
+}
+
+<h4 class="text-center">Email: @Model.EmailAddress</h4>
+<br />
+<div style="text-align:center;">
+    <a href="@Url.Action("Index", "Product", new {searchTerm = "Saved" })">
+        <img src="~/Images/iconUnsaved.png">
+    </a>
+</div>
+<br />
+<h4 class="text-center">Address: @Model.Address.HouseNumber @Model.Address.StreetName</h4>
+<h4 class="text-center">City: @Model.Address.City</h4>
+<h4 class="text-center">Postcode: @Model.Address.Postcode</h4>
+
+<div style="text-align: center; margin-top: 50px">
+    @Html.ActionLink("DELETE ACCOUNT", "Delete", new { id = Model.UserId }, new { @class = "shopButton", @id = "DeleteAccountButton" })
+</div>
+
+
+@* buy premium, if admin view other acounts *@
+

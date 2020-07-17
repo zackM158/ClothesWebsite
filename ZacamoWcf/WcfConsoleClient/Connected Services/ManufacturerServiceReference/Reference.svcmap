@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0a1bd402-e570-4564-b3de-98ca6fa28f5a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51714/ManufacturerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ManufacturerService.xsd" MetadataType="Schema" ID="518db496-7adc-4e43-b9a1-6b70af950496" SourceId="1" SourceUrl="http://localhost:51714/ManufacturerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ManufacturerService1.xsd" MetadataType="Schema" ID="3ea178de-06b9-4004-a487-99724e5f3ad0" SourceId="1" SourceUrl="http://localhost:51714/ManufacturerService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ManufacturerService.wsdl" MetadataType="Wsdl" ID="6586ab8e-f1c7-4779-a5d5-65490af683f0" SourceId="1" SourceUrl="http://localhost:51714/ManufacturerService.svc?wsdl" />
+    <MetadataFile FileName="ManufacturerService2.xsd" MetadataType="Schema" ID="e9560224-59af-48f8-8952-39b6c7c84295" SourceId="1" SourceUrl="http://localhost:51714/ManufacturerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ManufacturerService.disco" MetadataType="Disco" ID="3236a23a-8973-41a2-9095-d1111c8cd8a0" SourceId="1" SourceUrl="http://localhost:51714/ManufacturerService.svc?disco" />
+    <MetadataFile FileName="ManufacturerService3.xsd" MetadataType="Schema" ID="74b0504d-ec74-4c72-be1d-cf7fe5b226b2" SourceId="1" SourceUrl="http://localhost:51714/ManufacturerService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

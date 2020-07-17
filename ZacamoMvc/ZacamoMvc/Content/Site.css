@@ -1,0 +1,865 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial Narrow Bold','Franklin Gothic Medium', 'Century Gothic', sans-serif;
+    outline: none !important;
+}
+
+a {
+    color: #46DCDE;
+}
+
+a:hover {
+    color: #52D273;
+    text-decoration-line: none;
+}
+
+body {
+    background-color: #202020
+}
+
+header {
+    background-image: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)), url(../Images/zacamoBackground.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.navigation {
+    float: right;
+    list-style-type: none;
+    margin-top: 25px;
+}
+
+    .navigation li {
+        display: inline-block;
+    }
+
+        .navigation li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 20px;
+            border: 1px solid transparent;
+            transition: 0.6s ease;
+        }
+
+            .navigation li a:hover {
+                background-color: #fff;
+                color: #000;
+            }
+
+        .navigation li.active a {
+            background-color: #fff;
+            color: #000;
+        }
+
+.logo img {
+    float: left;
+    width: 200px;
+    height: auto;
+}
+
+.main {
+    max-width: 1200px;
+    margin: auto;
+    /*position: sticky;*/
+    top: 0;
+    z-index: 2;
+}
+
+.title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-shadow: 5px 5px black;
+}
+
+    .title h1, .title2 h1 {
+        color: #fff;
+        text-align: center;
+        font-size: 4.3em;
+        white-space: nowrap;
+    }
+
+.title2 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-shadow: 5px 5px black;
+}
+
+.button {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+}
+
+.btn a{
+    border: 1px solid #fff;
+    background: none;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.6s ease;
+    margin: 0px 20px;
+    padding: 10px 30px;
+}
+
+.shopButton, .formInput {
+    border: 1px solid #fff;
+    background: none;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.6s ease;
+    /*margin: 0px 20px;*/
+    padding: 5px 0 5px 10px;
+}
+
+.formInput {
+    width: 100%;
+}
+
+
+
+    .btn a:hover, .shopButton:hover, .formInput:hover{
+        background-color: #fff;
+        color: #000;
+    }
+
+.dropped:hover {
+    color: black;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #888888;
+    min-width: 160px;
+    box-shadow: 0px 15px 40px 10px #000000;
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: #000;
+    background-color: #fff;
+}
+
+#search {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+}
+
+.searchbar {
+    padding: 6px;
+    border-radius: 20px;
+    border: none;
+    font-size: 17px;
+    width: 100%;
+    background-color: #CCC;
+    margin: 0px 0px 10px 0px;
+    color: black;
+}
+
+/* Style the navigation menu */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    display: none;
+    z-index: 1;
+}
+
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    .topnav #myLinks {
+        display: none;
+    }
+
+    /* Style navigation menu links */
+    .topnav a, topnav li a {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+    }
+
+
+
+    .topnav #mobileLogo {
+        padding: 0px 0px;
+    }
+
+
+    /* Style the hamburger menu */
+    .topnav a.icon {
+        background: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 80px;
+    }
+
+.fa {
+    padding-top: 25%;
+    padding-left: 25%;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover, topnav li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav #mobileLogo:hover {
+    background-color: #333;
+}
+
+/* Style the active link (or home/logo) */
+#myLinks .active, #myLinks .active a {
+    background-color: #fff;
+    color: #000;
+}
+
+footer {
+    color: #AAAAAA;
+}
+
+hr {
+    border-color: #777;
+}
+
+.contactTable {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 2em;
+    white-space: nowrap;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+    .contactTable td {
+        padding: 10px 100px;
+        border-right: solid 5px white;
+        text-shadow: 5px 5px black;
+    }
+
+.mobileTable {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 1.4em;
+    white-space: nowrap;
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: none;
+}
+
+    .mobileTable td {
+        padding: 30px 10px;
+        text-shadow: 3px 3px black;
+        border-bottom: solid 5px white;
+    }
+
+    .mobileTable .tableEnd, .contactTable .tableEnd {
+        border: none;
+    }
+
+.bodyText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.5em;
+    text-shadow: 3px 3px black;
+    color: white;
+    text-align: center;
+}
+
+.loginCol legend {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.loginForm {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.5em;
+    text-shadow: 3px 3px black;
+    color: white;
+    text-align: left;
+}
+
+    .loginForm td {
+        padding: 5px 50px;
+    }
+
+.loginCol {
+    padding: 0px 45px;
+}
+
+.mobileForm {
+    display: none;
+}
+
+.loginCol fieldset {
+    background-color: rgba(0,0,0,0.7);
+    padding: 20px 20px;
+}
+
+.loginForm input, .loginForm select {
+    vertical-align: middle;
+}
+
+.shop {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.shopTable, .manufacturersTable {
+    margin: 50px auto;
+    color: white;
+}
+
+    .shopTable tr td, .manufacturersTable tr td {
+        padding: 10px 10px;
+    }
+
+.manufacturersTable td {
+    border-top: 1px solid #ddd;
+}
+
+    .manufacturersTable th {
+        font-size: 1.2em;
+        font-weight: bold
+    }
+
+    .shopDataTop {
+        padding: 10px 40px;
+    }
+
+.shopData {
+    color: white;
+    font-size: 1.5em;
+}
+
+.shopImage {
+    width: 320px; 
+    height: 400px;
+}
+
+.shopTitle {
+    color: white;
+    font-size: 4em;
+    text-align: center;
+    padding: 15px 0px;
+}
+
+.shopData #shopName {
+    text-align: center;
+}
+
+.shopData #shopDescription {
+    text-align: left;
+}
+
+.shopData #shopPrice, .shopData #shopPricePremium {
+    text-align: right;
+}
+
+.shopData #shopPricePremium {
+    color: #E5C453;
+}
+
+.noBorder td {
+    padding: 10px 20px;
+    border: none;
+}
+
+.CreateButton {
+    padding: 80px 0 0 90px;
+}
+
+.shopBar {
+    max-width: 1200px;
+    padding-top: 100px;
+    margin: auto;
+    /*top: 0;
+    z-index: 2;*/
+}
+
+.shopNavigation {
+    float: right;
+    list-style-type: none;
+}
+
+#shopNavigationLeft {
+    float: left;
+}
+
+
+
+#shopNavigationRight {
+    float: right;
+}
+
+#shopNavigationLeft ul {
+    float: left;
+}
+#SearchTop ul {
+    width: 100%;
+}
+
+
+#SearchTop ul li {
+    width: 100%;
+}
+#SearchTop {
+    float: left;
+    width: 50%;
+}
+
+#shopNavigationRight ul {
+    float: right;
+}
+
+#shopNavigationCenter {
+    width: 100%;
+    text-align: center;
+}
+
+.shopBar li, .shopBarMobile li {
+    display: inline-block;
+}
+
+.shopBar, .shopBarMobile {
+    color: #fff;
+}
+
+.shopBar li a {
+        text-decoration: none;
+        color: #fff;
+        padding: 5px 20px;
+        border: 1px solid transparent;
+        transition: 0.6s ease;
+    }
+
+.shopBar li a:hover {
+        background-color: #fff;
+        color: #000;
+    }
+
+.shopBar li.active a {
+        background-color: #fff;
+        color: #000;
+    }
+
+.shopForm {
+    margin: 50px auto;
+    color: white;
+    font-size: 1.2em;
+    text-shadow: 3px 3px black;
+}
+.shopForm td {
+    padding: 5px 50px;
+}
+
+.FormTitle {
+    text-align: center;
+}
+
+.ProductImage {
+    float: left;
+    margin: 50px 0 0 0;
+}
+
+.ProductDescription {
+    float: left;
+    margin: 50px 0 0 100px;
+    color: white;
+}
+
+.table, h1, h2, h3, h4, h5 {
+    color: white;
+
+}
+
+h3 {
+    text-align: center;
+}
+
+/*.navigation li.active .dropdown-content a {
+    background-color: red;
+    color: #000;
+}*/
+.navigation li.active .dropdown-content a {
+    background-color: #888888;
+    color: white;
+}
+
+.navigation li.active .dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.searchbarTop {
+    padding: 6px;
+    border-radius: 20px;
+    border: none;
+    font-size: 17px;
+    width: 100%;
+    background-color: #CCC;
+    color: black;
+    margin: auto;
+}
+
+#centered {
+    text-align: center;
+}
+
+#deleteButton {
+    width: 100%;
+    color: red;
+    border-color: red;
+    margin: 0;
+}
+
+#DeleteAccountButton {
+    color: red;
+    border-color: red;
+    padding: 10px;
+    margin: 0;
+}
+
+#BuyPremiumButton {
+    color: #E5C453;
+    border-color: #E5C453;
+    font-size: 2em;
+    padding: 10px;
+    margin: 0;
+}
+
+#CheckoutButton, #CheckoutButton2 {
+    color: #46DCDE;
+    border-color: #46DCDE;
+    padding: 10px;
+    font-size: 2em;
+    margin: 0;
+}
+
+#CheckoutButton2 {
+    width: 100%;
+}
+
+    .CheckoutHolder {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+#AddToBasketButton {
+    font-size: 2em;
+    padding: 10px;
+    margin: 0;
+}
+
+.shopBarMobile {
+    padding-top: 20px;
+    display: none;
+}
+
+.shopBarMobile li {
+    margin: 0 20px;
+}
+
+#centeredVertical td {
+    vertical-align: middle;
+}
+
+.webForm hr {
+    margin-top: 40px;
+}
+
+.validationCenter {
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.control-label, .col-md-2 {
+    margin: 0;
+    padding: 0;
+}
+
+.ProductsTable1, .ProductsTable2, .ProductsTable3 {
+    display: none;
+}
+
+.BasketImage {
+    height: 25%;
+}
+
+.ErrorImage {
+    width: 50%;
+    margin: auto;
+}
+
+.webLine {
+    display: inline;
+}
+
+.validationDiv ul{
+    list-style-type: none;
+}
+
+@media screen and (max-width: 1400px) {
+    .ProductsTable1, .ProductsTable2, .ProductsTable4 {
+        display: none;
+    }
+    .ProductsTable3 {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    .ProductsTable1, .ProductsTable3, .ProductsTable4 {
+        display: none;
+    }
+
+    .ProductsTable2 {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .navigation {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+
+    .logo img {
+        float: none;
+        width: 200px;
+        height: auto;
+    }
+    .main {
+        display: none;
+    }
+
+    .topnav {
+        display: block;
+    }
+
+    .title h1 {
+        white-space: normal;
+    }
+
+    .bodyText {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%,0%);
+    }
+
+    .button {
+        white-space: normal;
+        top: 65%;
+        left: 50%;
+    }
+
+    .btn {
+        display: block;
+        margin: 30px 0px;
+        font-size: 1.5em;
+        white-space: nowrap;
+    }
+
+    #search {
+        top: 82%;
+        left: 50%;
+        width: 75%;
+    }
+
+    .searchbar, .searchbarTop {
+        font-size: 1.5em;
+    }
+
+
+    .mobileTable {
+        display: block;
+    }
+
+    .contactTable {
+        display: none;
+    }
+
+    .webForm, .webLine {
+        display: none;
+    }
+
+
+        .mobileForm {
+            display: block;
+        }
+
+    .loginForm {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+        .loginForm td {
+            padding: 5px 5px;
+        }
+
+    .loginCol {
+        padding: 10px 0px;
+    }
+
+    .loginForm input, .loginForm select {
+        height: unset;
+    }
+
+    .shopForm {
+        margin: 40px auto 0 auto;
+        color: white;
+        font-size: 1.2em;
+        text-shadow: 3px 3px black;
+    }
+
+        .shopForm td {
+            text-align: center;
+        }
+
+        .shopForm input {
+            text-align: center;
+        }
+
+    .formInput {
+        margin: 0px 0;
+    }
+
+    .shopBar {
+        padding-top: 10px;
+    }
+
+    .shopBar {
+        display: none;
+    }
+
+    .shopBarMobile {
+        display: block;
+    }
+
+    .shopTable, .manufacturersTable {
+        margin: 0 auto;
+    }
+
+    #TitleCenter {
+        padding-top: 10px;
+    }
+
+    #TitleRight {
+        padding-top: 10px;
+        text-align: unset;
+        float: left;
+        margin: 0 20px 0 0;
+    }
+
+    #deleteForm {
+        margin-top: 80px;
+    }
+
+    #shopNavigationCenter {
+        width: 100%;
+    }
+
+
+    #searchCenter {
+        width: 75%;
+    }
+
+    .validationCenter {
+        margin-top: 50px;
+    }
+
+    .ErrorImage {
+        width: 100%;
+    }
+
+    .ProductImage {
+        float: none;
+        margin: 0;
+    }
+
+        .ProductImage img {
+            width: 100%;
+        }
+
+    .ProductDescription {
+        float: none;
+        margin: 0;
+        text-align: center;
+    }
+
+        .ProductDescription ul {
+            display: inline-block;
+        }
+
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .ProductsTable2, .ProductsTable3, .ProductsTable4 {
+        display: none;
+    }
+
+    .ProductsTable1 {
+        display: block;
+    }
+}

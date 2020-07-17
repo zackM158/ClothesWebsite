@@ -1,0 +1,232 @@
+﻿@using ZacamoMvc.Controllers
+@model IEnumerable<Entities.Product>
+
+
+<div class="shopBar">
+    <div id="SearchTop">
+        <ul>
+            <li>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <input name="searchTerm" class="searchbarTop" type="text" placeholder="Search.." autocomplete="off" value="@ViewBag.SearchTerm">
+            }
+            </li>
+        </ul>
+    </div>
+    <div id="shopNavigationRight">
+        <ul>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+                <li>@Html.ActionLink("Create New", "Create")</li>
+            }
+                <li>
+                    <select class="shopButton" id="UrlList" onchange="doNavigate()">
+                        <option value="">Sort By</option>
+                        <option value="@Url.Action("Index", "Product", new {sortOrder = "Name", searchTerm = @ViewBag.SearchTerm})">Name</option>
+                        <option value="@Url.Action("Index", "Product", new {sortOrder = "PriceLow", searchTerm = @ViewBag.SearchTerm})">Price Low</option>
+                        <option value="@Url.Action("Index", "Product", new {sortOrder = "PriceHigh", searchTerm = @ViewBag.SearchTerm})">Price High</option>
+                        <option value="@Url.Action("Index", "Product", new {sortOrder = "Category", searchTerm = @ViewBag.SearchTerm})">Category</option>
+                        <option value="@Url.Action("Index", "Product", new {sortOrder = "Manufacturer", searchTerm = @ViewBag.SearchTerm})">Manufacturer</option>
+                    </select>
+                </li>
+            </ul>
+    </div>
+</div>
+
+<div class="shopBarMobile">
+    <div id="shopNavigationCenter">
+        <ul>
+            <li id="searchCenter">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <input name="searchTerm" class="searchbarTop" type="text" placeholder="Search.." autocomplete="off" value="@ViewBag.SearchTerm">
+                }
+            </li>
+        </ul>
+    </div>
+    <div id="shopNavigationCenter">
+        <ul>
+            <li>
+                <a href="@Url.Action("Create", "Product")">
+                    <img src="~/Images/iconAdd.png">
+                </a>
+            </li>
+            <li>
+                <select class="shopButton" id="UrlListMobile" onchange="doNavigateMobile()">
+                    <option value="">Sort By</option>
+                    <option value="@Url.Action("Index", "Product", new {sortOrder = "Name", searchTerm = @ViewBag.SearchTerm})">Name</option>
+                    <option value="@Url.Action("Index", "Product", new {sortOrder = "PriceLow", searchTerm = @ViewBag.SearchTerm})">Price Low</option>
+                    <option value="@Url.Action("Index", "Product", new {sortOrder = "PriceHigh", searchTerm = @ViewBag.SearchTerm})">Price High</option>
+                    <option value="@Url.Action("Index", "Product", new {sortOrder = "Category", searchTerm = @ViewBag.SearchTerm})">Category</option>
+                    <option value="@Url.Action("Index", "Product", new {sortOrder = "Manufacturer", searchTerm = @ViewBag.SearchTerm})">Manufacturer</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="ProductsTable4">
+    <table class="shopTable">
+
+        @foreach (var productGroup in Model.Select((e, i) => new {Product = e, Grouping = (i / 4)}).GroupBy(e => e.Grouping))
+        {
+            <tr>
+                @foreach (var product in productGroup.Select(x => x.Product))
+                {
+                    <td>
+                        <a href="@Url.Action("Details", "Product", new {id = product.ProductId})">
+                            <img alt="@product.Name Image" src="Images/@Html.DisplayFor(modelItem => product.ImagePath)" class="shopImage"/>
+                        </a>
+                        <div class="shopData">
+                            <p id="shopName">@product.Name By @product.Manufacturer.Name</p>
+                            <a style="float:left" href="@Url.Action("ToggleSave", "Account", new {productId = product.ProductId })">
+                                @if (ViewBag.SavedItems != null && ViewBag.SavedItems.Contains(product.ProductId.ToString()))
+                                {
+                                    <img src="~/Images/iconSavedSmall.png">
+                                }
+                                else
+                                {
+                                    <img src="~/Images/iconUnsavedSmall.png">
+                                }
+                            </a>
+                            @if (product.StockAmount - BasketController.basket.FindAll(p => p.ProductId == product.ProductId).Count > 0)
+                            {
+                                <p id="shopPrice">£@product.Price</p>
+                            }
+                            else
+                            {
+                                <p id="shopPrice" style="color:red">Out Of Stock</p>
+
+                            }
+                        </div>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="ProductsTable3">
+    <table class="shopTable">
+
+        @foreach (var productGroup in Model.Select((e, i) => new {Product = e, Grouping = (i / 3)}).GroupBy(e => e.Grouping))
+        {
+            <tr>
+                @foreach (var product in productGroup.Select(x => x.Product))
+                {
+                    <td>
+                        <a href="@Url.Action("Details", "Product", new {id = product.ProductId})">
+                            <img alt="@product.Name Image" src="Images/@Html.DisplayFor(modelItem => product.ImagePath)" class="shopImage"/>
+                        </a>
+                        <div class="shopData">
+                            <p id="shopName">@product.Name By @product.Manufacturer.Name</p>     
+                            <a style="float:left" href="@Url.Action("ToggleSave", "Account", new {productId = product.ProductId })">
+                                @if (ViewBag.SavedItems != null && ViewBag.SavedItems.Contains(product.ProductId.ToString()))
+                                {
+                                    <img src="~/Images/iconSavedSmall.png">
+                                }
+                                else
+                                {
+                                    <img src="~/Images/iconUnsavedSmall.png">
+                                }
+                            </a>
+                            @if (product.StockAmount - BasketController.basket.FindAll(p => p.ProductId == product.ProductId).Count > 0)
+                            {
+                                <p id="shopPrice">£@product.Price</p>
+                            }
+                            else
+                            {
+                                <p id="shopPrice" style="color:red">Out Of Stock</p>
+
+                            }
+                        </div>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="ProductsTable2">
+    <table class="shopTable">
+
+        @foreach (var productGroup in Model.Select((e, i) => new { Product = e, Grouping = (i / 2) }).GroupBy(e => e.Grouping))
+        {
+            <tr>
+                @foreach (var product in productGroup.Select(x => x.Product))
+                {
+                    <td>
+                        <a href="@Url.Action("Details", "Product", new {id = product.ProductId})">
+                            <img alt="@product.Name Image" src="Images/@Html.DisplayFor(modelItem => product.ImagePath)" class="shopImage" />
+                        </a>
+                        <div class="shopData">
+                            <p id="shopName">@product.Name By @product.Manufacturer.Name</p>     
+                            <a style="float:left" href="@Url.Action("ToggleSave", "Account", new {productId = product.ProductId })">
+                                @if (ViewBag.SavedItems != null && ViewBag.SavedItems.Contains(product.ProductId.ToString()))
+                                {
+                                    <img src="~/Images/iconSavedSmall.png">
+                                }
+                                else
+                                {
+                                    <img src="~/Images/iconUnsavedSmall.png">
+                                }
+                            </a>
+                            @if (product.StockAmount - BasketController.basket.FindAll(p => p.ProductId == product.ProductId).Count > 0)
+                            {
+                                <p id="shopPrice">£@product.Price</p>
+                            }
+                            else
+                            {
+                                <p id="shopPrice" style="color:red">Out Of Stock</p>
+
+                            }
+                        </div>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="ProductsTable1">
+    <table class="shopTable">
+
+        @foreach (var productGroup in Model.Select((e, i) => new { Product = e, Grouping = (i / 1) }).GroupBy(e => e.Grouping))
+        {
+            <tr>
+                @foreach (var product in productGroup.Select(x => x.Product))
+                {
+                    <td>
+                        <a href="@Url.Action("Details", "Product", new {id = product.ProductId})">
+                            <img alt="@product.Name Image" src="Images/@Html.DisplayFor(modelItem => product.ImagePath)" class="shopImage" />
+                        </a>
+                        <div class="shopData">
+                            <p id="shopName">@product.Name By @product.Manufacturer.Name</p>
+                            <a style="float:left" href="@Url.Action("ToggleSave", "Account", new {productId = product.ProductId })">
+                                @if (ViewBag.SavedItems != null && ViewBag.SavedItems.Contains(product.ProductId.ToString()))
+                                {
+                                    <img src="~/Images/iconSavedSmall.png">
+                                }
+                                else
+                                {
+                                    <img src="~/Images/iconUnsavedSmall.png">
+                                }
+                            </a>
+                            @if (product.StockAmount - BasketController.basket.FindAll(p => p.ProductId == product.ProductId).Count > 0)
+                            {
+                                <p id="shopPrice">£@product.Price</p>
+                            }
+                            else
+                            {
+                                <p id="shopPrice" style="color:red">Out Of Stock</p>
+
+                            }
+                        </div>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>

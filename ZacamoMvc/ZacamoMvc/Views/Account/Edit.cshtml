@@ -1,0 +1,220 @@
+﻿@model Entities.User
+
+@{
+    ViewBag.Title = "Edit Account";
+}
+
+<div class="shopBar">
+    <ul class="shopNavigation" id="shopNavigationLeft">
+        <li>@Html.ActionLink("Back to Account", "Index")</li>
+    </ul>
+</div>
+
+<div class="shopBarMobile">
+    <div id="shopNavigationLeft">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Account")">
+                    <img src="~/Images/iconBack.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="webForm">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        <table class="shopForm">
+
+            <h1 class="FormTitle">Edit Account</h1> 
+            @Html.ValidationSummary(true, "", new { @class = "text-danger validationCenter" })
+            @Html.HiddenFor(model => model.UserId)
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Address.HouseNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Address.HouseNumber, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.Address.HouseNumber, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Address.StreetName, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Address.StreetName, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.Address.StreetName, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Address.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Address.City, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.Address.City, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Address.Postcode, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Address.Postcode, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.Address.Postcode, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Save Changes" class="shopButton" style="width: 100%" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+<div class="mobileForm">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <table class="shopForm">
+
+        <h2 class="FormTitle">Edit Account</h2>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger validationCenter" })
+        @Html.HiddenFor(model => model.UserId)
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.FirstName, "Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Address.HouseNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.Address.HouseNumber, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.Address.HouseNumber, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Address.StreetName, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.Address.StreetName, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.Address.StreetName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Address.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.Address.City, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.Address.City, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Address.Postcode, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.Address.Postcode, new { htmlAttributes = new { @class = "formInput" } })
+                @Html.ValidationMessageFor(model => model.Address.Postcode, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Save Changes" class="formInput" />
+            </td>
+        </tr>
+    </table>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

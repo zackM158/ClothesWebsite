@@ -1,0 +1,94 @@
+﻿@using ZacamoMvc.Controllers
+@model Entities.Product
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+    <div class="container body-content">
+        <div class="shopBar">
+            <div id="shopNavigationLeft">
+                <ul>
+                    <li>@Html.ActionLink("Back to List", "Index")</li>
+                </ul>
+            </div>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+                <div id="shopNavigationRight">
+                    <ul>
+                        <li>@Html.ActionLink("Edit", "Edit", new { id = Model.ProductId })</li>
+                        <li>@Html.ActionLink("Delete", "Delete", new { id = Model.ProductId })</li>
+                    </ul>
+                </div>
+            }
+            </div>
+
+        <div class="shopBarMobile">
+            <div id="shopNavigationCenter">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index", "Product")">
+                            <img src="~/Images/iconBack.png">
+                        </a>
+                    </li>
+                    @if (HttpContext.Current.User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="@Url.Action("Edit", "Product", new { id = Model.ProductId })">
+                                <img src="~/Images/iconEdit.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Delete", "Product", new { id = Model.ProductId })">
+                                <img src="~/Images/iconDelete.png">
+                            </a>
+                        </li>
+                    }
+                    </ul>
+            </div>
+        </div>
+
+        <div class="ProductImage">
+            <img alt="@Model.Name Image" src="~/Images/@Html.DisplayFor(modelItem => @Model.ImagePath)" />
+        </div>
+        <div class="ProductDescription">
+            <h1 style="text-align: center">@Model.Name</h1>
+            <h3><a href="http://@Model.Manufacturer.Website">By @Model.Manufacturer.Name</a></h3>
+            @if (HttpContext.Current.User.IsInRole("Premium"))
+            {
+                <div style="text-align: center">
+                    <h1 style="display: inline;"><s>£@Model.Price</s></h1> <h1 style="display: inline; color: #E5C453; margin-left: 30px ">£@(Math.Round(Model.Price * 0.9, 2).ToString("0.00"))</h1>
+                </div>
+            }
+            else
+            {
+                <h1 style="text-align: center">£@Model.Price</h1>
+            }
+        <ul style="margin-top: 50px">
+
+            @foreach (var description in Model.Description.Split(','))
+            {
+                <li><h4>@description</h4></li>
+            }
+        </ul>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @if (@Model.StockAmount - BasketController.basket.FindAll(p=>p.ProductId==Model.ProductId).Count > 0)
+            {
+                if (@Model.StockAmount - BasketController.basket.FindAll(p => p.ProductId == Model.ProductId).Count <= 50)
+                {
+                    <h3 style="color: red">Hurry, Only @(Model.StockAmount - BasketController.basket.FindAll(p => p.ProductId == Model.ProductId).Count) Left!</h3>
+                }
+                <div style="text-align: center; margin-top: 50px">
+                    @Html.ActionLink("Add To Basket", "AddItemToBasket", "Basket", new { id = Model.ProductId }, new { @class = "shopButton", @id = "AddToBasketButton" })
+                </div>
+            }
+            else
+            {
+                <h4 style="color:red">Sorry, This Item Is Out Of Stock</h4>
+            }
+        </div>
+
+       
+
+
+    </div>

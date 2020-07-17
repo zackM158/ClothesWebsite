@@ -1,0 +1,76 @@
+﻿@model List<Entities.Product>
+
+@{
+    ViewBag.Title = "Basket";
+}
+
+<div class="container body-content">
+    <div class="shopBar">
+        <ul class="shopNavigation">
+        </ul>
+        <hr style="margin-top: 50px" />
+    </div>
+
+
+    <h1 class="FormTitle" id="TitleCenter">Basket</h1>
+
+    <div class="shopBarMobile">
+        <div id="shopNavigationCenter">
+            <ul>
+                <li>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <table class="manufacturersTable" id="centeredVertical">
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name By @item.Manufacturer.Name
+                </td>
+                <td>
+                    <img src="~/Images/@item.ImagePath" class="BasketImage">
+                </td>
+                <td>
+                    @if (HttpContext.Current.User.IsInRole("Premium"))
+                    {
+                        <h3 style="color:#E5C453">£@(Math.Round(item.Price * 0.9, 2).ToString("0.00"))</h3>
+                    }
+                    else
+                    {
+                        <p>£@item.Price</p>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("RemoveFromBasket", "Basket", new { id = item.ProductId })">
+                        <img src="~/Images/iconDeleteSmall.png">
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @if (@Model.Count > 0)
+    {
+        <div class="CheckoutHolder">
+            @if (HttpContext.Current.User.IsInRole("Premium"))
+            {
+                <h2 style="color:#E5C453">Total: £@(Math.Round(ViewBag.TotalPrice * 0.9, 2).ToString("0.00"))</h2>
+            }
+            else
+            {
+                <h2>Total: £@ViewBag.TotalPrice</h2>
+            }
+            @Html.ActionLink("Checkout", "Checkout", null, new {@class = "shopButton", @id = "CheckoutButton"})
+        </div>
+    }
+    else
+    {
+        <h3>No Items In Basket</h3>
+    }
+</div>
+

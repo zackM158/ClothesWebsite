@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ManufacturerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:51714/ManufacturerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:51714/ManufacturerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:51714/ManufacturerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService" />
+      <xsd:import schemaLocation="http://localhost:51714/ManufacturerService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IManufacturerService_GetAllManufacturers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllManufacturers" />
+  </wsdl:message>
+  <wsdl:message name="IManufacturerService_GetAllManufacturers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllManufacturersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManufacturerService_AddManufacturer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddManufacturer" />
+  </wsdl:message>
+  <wsdl:message name="IManufacturerService_AddManufacturer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddManufacturerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManufacturerService_UpdateManufacturer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateManufacturer" />
+  </wsdl:message>
+  <wsdl:message name="IManufacturerService_UpdateManufacturer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateManufacturerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManufacturerService_DeleteManufacturer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteManufacturer" />
+  </wsdl:message>
+  <wsdl:message name="IManufacturerService_DeleteManufacturer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteManufacturerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IManufacturerService_GetManufacturerById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManufacturerById" />
+  </wsdl:message>
+  <wsdl:message name="IManufacturerService_GetManufacturerById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManufacturerByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IManufacturerService">
+    <wsdl:operation name="GetAllManufacturers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManufacturerService/GetAllManufacturers" message="tns:IManufacturerService_GetAllManufacturers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManufacturerService/GetAllManufacturersResponse" message="tns:IManufacturerService_GetAllManufacturers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddManufacturer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManufacturerService/AddManufacturer" message="tns:IManufacturerService_AddManufacturer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManufacturerService/AddManufacturerResponse" message="tns:IManufacturerService_AddManufacturer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManufacturer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManufacturerService/UpdateManufacturer" message="tns:IManufacturerService_UpdateManufacturer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManufacturerService/UpdateManufacturerResponse" message="tns:IManufacturerService_UpdateManufacturer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteManufacturer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManufacturerService/DeleteManufacturer" message="tns:IManufacturerService_DeleteManufacturer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManufacturerService/DeleteManufacturerResponse" message="tns:IManufacturerService_DeleteManufacturer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManufacturerById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IManufacturerService/GetManufacturerById" message="tns:IManufacturerService_GetManufacturerById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IManufacturerService/GetManufacturerByIdResponse" message="tns:IManufacturerService_GetManufacturerById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IManufacturerService" type="tns:IManufacturerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllManufacturers">
+      <soap:operation soapAction="http://tempuri.org/IManufacturerService/GetAllManufacturers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManufacturer">
+      <soap:operation soapAction="http://tempuri.org/IManufacturerService/AddManufacturer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManufacturer">
+      <soap:operation soapAction="http://tempuri.org/IManufacturerService/UpdateManufacturer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteManufacturer">
+      <soap:operation soapAction="http://tempuri.org/IManufacturerService/DeleteManufacturer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManufacturerById">
+      <soap:operation soapAction="http://tempuri.org/IManufacturerService/GetManufacturerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ManufacturerService">
+    <wsdl:port name="BasicHttpBinding_IManufacturerService" binding="tns:BasicHttpBinding_IManufacturerService">
+      <soap:address location="http://localhost:51714/ManufacturerService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

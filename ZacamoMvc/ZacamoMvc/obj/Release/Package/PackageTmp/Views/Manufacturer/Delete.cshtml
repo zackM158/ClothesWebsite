@@ -1,0 +1,86 @@
+﻿@model Entities.Manufacturer
+
+@{
+    ViewBag.Title = "Delete Manufacturer";
+}
+
+<div class="shopBar">
+    <ul class="shopNavigation" id="shopNavigationLeft">
+        <li>@Html.ActionLink("Back to List", "Index")</li>
+    </ul>
+</div>
+
+<div class="shopBarMobile">
+    <div id="shopNavigationLeft">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Manufacturer")">
+                    <img src="~/Images/iconBack.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="webForm">
+    @using (Html.BeginForm("Delete", "Manufacturer", FormMethod.Post, new { @class = "shopForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        <table class="shopForm" id="centered">
+
+            <h1 class="FormTitle">Delete @Model.Name</h1>
+            <h3>Are you sure you want to delete this manufacturer?</h3>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger validationCenter" })
+            <tr>
+                <td>
+                    Name: @Model.Name
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Website: @Model.Website
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Delete" class="shopButton" id="deleteButton" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+
+<div class="mobileForm" id="deleteForm">
+    @using (Html.BeginForm("Delete", "Manufacturer", FormMethod.Post, new { @class = "shopForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <table class="shopForm" id="centered">
+
+            <h1 class="FormTitle">Delete @Model.Name</h1>
+
+            <h3>Are you sure you want to delete this manufacturer?</h3>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger validationCenter" })
+            <tr>
+                <td>
+                    Name: @Model.Name
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Website: @Model.Website
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Delete" class="shopButton" id="deleteButton" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>

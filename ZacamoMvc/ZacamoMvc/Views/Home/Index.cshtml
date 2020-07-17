@@ -1,0 +1,32 @@
+﻿@model ZacamoMvc.Models.SearchProductViewModel
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<header>
+    <div class="title">
+        <h1>UPGRADE UNLOCKED</h1>
+    </div>
+
+    <div class="button">
+        <!--<a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" class="btn">WATCH VIDEOS</a>-->
+        <ul>
+            <li class="btn">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">WATCH VIDEOS</a>
+            </li>
+            <li class="btn">
+                @Html.ActionLink("SHOP CLOTHES", "Index", "Product")
+            </li>
+        </ul>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div id = "search">
+            @Html.EditorFor(model => model.SearchTerm, new { htmlAttributes = new { @class = "searchbar", placeholder = "Search...", autocomplete="off" } })
+        </div>
+    }
+
+</header>

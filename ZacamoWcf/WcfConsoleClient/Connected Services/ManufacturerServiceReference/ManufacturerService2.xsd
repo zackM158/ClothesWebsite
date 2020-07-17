@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfManufacturerDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ManufacturerDto" nillable="true" type="tns:ManufacturerDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfManufacturerDto" nillable="true" type="tns:ArrayOfManufacturerDto" />
+  <xs:complexType name="ManufacturerDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmountOfProducts" type="xs:int" />
+      <xs:element minOccurs="0" name="ManufacturerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ManufacturerDto" nillable="true" type="tns:ManufacturerDto" />
+</xs:schema>

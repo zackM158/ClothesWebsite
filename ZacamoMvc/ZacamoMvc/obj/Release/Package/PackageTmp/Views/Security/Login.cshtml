@@ -1,0 +1,97 @@
+﻿@model ZacamoMvc.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="shopBar">
+    <ul class="shopNavigation" id="shopNavigationLeft"></ul>
+</div>
+
+<div class="shopBarMobile">
+    <div id="shopNavigationLeft">
+        <ul></ul>
+    </div>
+</div>
+
+<div class="webForm">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        <table class="shopForm">
+
+            <h1 class="FormTitle">Log In</h1>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger validationCenter" })
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "formInput", Value=@ViewBag.Email } })
+                    @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Enter" class="shopButton" style="width: 100%" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+<div class="mobileForm">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <table class="shopForm">
+
+            <h2 class="FormTitle">Log In</h2>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger validationCenter" })
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "formInput" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Save Changes" class="formInput" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
